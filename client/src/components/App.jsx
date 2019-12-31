@@ -40,10 +40,10 @@ class App extends React.Component {
   getAll() {
     axios
       .get("/products")
-      // .then((response) => console.log(response.data))
+      // .then((response) => console.log(response.data.rows))
       .then(response => {
         this.setState({
-          onLoadProducts: response.data
+          onLoadProducts: response.data.rows
         });
       })
       .catch(err => console.error(err));

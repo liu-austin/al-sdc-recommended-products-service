@@ -97,7 +97,7 @@ const adj = [
   "ROCK",
   "ICE",
   "GROUND"
-];
+]; 
 const typesize = [
   "10'x12'x5'",
   "9'x14'x6'",

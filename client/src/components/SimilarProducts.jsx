@@ -29,7 +29,7 @@ class SimilarProducts extends React.Component {
       // .then((response) => console.log(response.data))
       .then(response => {
         this.setState({
-          allProducts: response.data
+          allProducts: response.data.rows
         });
       })
       .catch(err => console.error(err));

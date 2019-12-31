@@ -1,0 +1,6 @@
+{
+    "host": "localhost",
+    "user": "austinliu",
+    "db": "sdc_pg",
+    "port": "5432"
+}

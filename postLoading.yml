@@ -1,0 +1,20 @@
+config:
+    target: "http://localhost:3001"
+    phases:
+      - duration: 20
+        arrivalRate: 100
+scenarios:
+- flow:
+    - post:
+        url: "/products"
+        json:
+            id: 10000005
+            itemname: "Stainless Steel Table"
+            itemimage: "image_url"
+            typesize: "7 X 11 X 12"
+            price: 200
+            itemdescription: "Silver Cold Stainless Steel"
+            rating: 3.6
+            numberratings: 197
+    # Print the data we're sending while debugging the script:
+    - log: "Sent a request to /products"

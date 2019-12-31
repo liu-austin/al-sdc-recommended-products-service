@@ -1,0 +1,1 @@
+DROP DATABASE sdc_pg IF EXISTS;

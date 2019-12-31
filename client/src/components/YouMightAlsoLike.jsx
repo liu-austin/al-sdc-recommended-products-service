@@ -41,7 +41,7 @@ class YouMightAlsoLike extends React.Component {
       // .then((response) => console.log(response.data))
       .then(response => {
         this.setState({
-          allLikedProducts: this.shuffleArray(response.data)
+          allLikedProducts: this.shuffleArray(response.data.rows)
         });
       })
       .catch(err => console.error(err));
