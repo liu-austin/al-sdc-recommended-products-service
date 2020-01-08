@@ -15,7 +15,8 @@ const host = config.host;
 const user = config.user;
 const db = config.db;
 const port = config.port;
-const conString = `postgres://${user}:@${host}:${port}/${db}`;
+const password = config.password;
+const conString = `postgres://${user}:${password}@${host}:${port}/${db}`;
 const csvPath = path.join(__dirname, './out.csv');
 
 // // Connecting to Database

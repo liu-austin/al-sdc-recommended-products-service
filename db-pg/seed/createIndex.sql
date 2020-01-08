@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX index_id ON products (id);

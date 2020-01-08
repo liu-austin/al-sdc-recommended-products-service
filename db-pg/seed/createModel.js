@@ -12,12 +12,14 @@ async function createModel() {
     
     const createDBFullPath = path.join(__dirname, './createDb.sql');
     const createSchemaFullPath = path.join(__dirname, './createTable.sql');
+    const createIndexFullPath = path.join(__dirname, './createIndex.sql');
 
     // const sqlDropDB = sql(dropDBFullPath);
     const sqlCreateDB = sql(createDBFullPath);
     // console.log(sqlCreateDB);
     const sqlCreateSchema = sql(createSchemaFullPath);
     // console.log(sqlCreateSchema);
+    const sqlCreateIndex = sql(createIndexFullPath);
     
     try {
         await dbPG.none(sqlCreateDB);
@@ -27,10 +29,21 @@ async function createModel() {
       } finally {
         try {
           const dbPgSdc = pgp(connectionString);
-          await dbPgSdc.none(sqlCreateSchema);
+          dbPgSdc.none(sqlCreateSchema)
+          .then(() => {
+            dbPgSdc.none(sqlCreateIndex);
+          });
           console.log('done creating schema');
         } catch (error) {
           console.log(`error creating schema: ${error}`);
+        } finally {
+          try {
+            // const dbPgSdcPrime = pgp(connectionString);
+            // await dbPgSdcPrime.none(sqlCreateIndex);
+            // console.log('done creating index on Id');
+          } catch (error) {
+            // console.log(`error creating index: ${error}`);
+          }
         }
       }
 }
