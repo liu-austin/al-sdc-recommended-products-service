@@ -55,7 +55,7 @@
     "style-loader": "^1.0.1",
     "styled-components": "^4.4.1",
     "through2": "^3.0.1",
-    "underscore": "^1.8.3",
+    "underscore": "^1.12.1",
     "webpack": "^4.29.6"
   }
 }
